@@ -1,6 +1,4 @@
-<style scoped>
-
-</style>
+<style scoped></style>
 
 <template>
   <div>
@@ -9,30 +7,24 @@
 </template>
 
 <script>
-import { onMounted } from 'vue';
-import { useRoute } from 'vue-router';
+import { onMounted } from 'vue'
+import { useRoute } from 'vue-router'
 
 export default {
   setup() {
-    const route = useRoute();
+    const route = useRoute()
 
     onMounted(() => {
       let payload = {
         code: route.query.code,
         sessionState: route.query.session_state,
-        state: route.query.state,
-      };
+        state: route.query.state
+      }
 
       console.log(payload)
-    });
+    })
 
-
-
-    return {
-
-    }
+    return {}
   }
 }
-
-
 </script>

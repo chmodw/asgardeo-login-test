@@ -24,9 +24,12 @@
     "@vitejs/plugin-vue": "^5.0.4",
     "@vue/eslint-config-prettier": "^8.0.0",
     "@vue/test-utils": "^2.4.5",
+    "bootstrap": "^5.3.3",
     "eslint": "^8.49.0",
     "eslint-plugin-vue": "^9.17.0",
+    "jquery": "^3.7.1",
     "jsdom": "^24.0.0",
+    "popper.js": "^1.16.1",
     "prettier": "^3.0.3",
     "vite": "^5.1.6",
     "vitest": "^1.4.0"

@@ -9,10 +9,12 @@
 <script>
 import { onMounted } from 'vue'
 import { useRoute } from 'vue-router'
+import { useTokenStore } from "@/stores/token.js";
 
 export default {
   setup() {
     const route = useRoute()
+    const tokenStore = useTokenStore();
 
     onMounted(() => {
       let payload = {
@@ -21,7 +23,10 @@ export default {
         state: route.query.state
       }
 
-      console.log(payload)
+      // exchange the code for token
+      const accessToken = tokenStore.exchangeCodeForToken(payload.code);
+
+      console.log(accessToken)
     })
 
     return {}

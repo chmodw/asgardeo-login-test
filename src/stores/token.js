@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
+import axios from "axios";
 
-export const createTokenStore = defineStore('token', {
+export const useTokenStore = defineStore('token', {
     state: () => ({
         codeChallenge: '',
         codeChallengeMethod: 'S256',
@@ -42,8 +43,26 @@ export const createTokenStore = defineStore('token', {
             }
         },
 
-        exchangeCodeForToken() {
+        async exchangeCodeForToken(code) {
+            const endpoint = "https://api.asgardeo.io/t/silixis/oauth2/token";
 
+            const body = JSON.stringify({
+                code: code,
+                grant_type: "authorization_code",
+                redirect_uri: "http://localhost:5173/redirect",
+                code_verifier: this.codeVerifier,
+                client_id: "H3wDLj7abIUR6U5vuf9ATL4Y1k0a"
+            });
+
+            const config = {
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                }
+            };
+
+            await axios.post(endpoint, body, config).then((res) => {
+                console.log(res);
+            });
         }
     }
 });

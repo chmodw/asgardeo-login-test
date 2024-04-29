@@ -6,11 +6,11 @@
 
 <script>
 
-import {createTokenStore} from "@/stores/token.js";
+import { useTokenStore } from "@/stores/token.js";
 
 export default {
   setup() {
-    const tokenStore = createTokenStore();
+    const tokenStore = useTokenStore();
 
     let organizationName = "silixis";
     let scope = null;
